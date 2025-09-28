@@ -1,0 +1,392 @@
+/* Define a professional color palette and smooth transitions */
+:root {
+    --primary-color: #1a73e8; /* Professional Blue */
+    --secondary-color: #0d47a1; /* Darker Blue */
+    --background-light: #ffffff; /* Pure white for cards */
+    --background-dark: #f0f4f8; /* Light gray background for sections */
+    --text-color: #202124;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Base transition for all interactive elements */
+* {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* General Body Styles - Use the new palette and smooth scrolling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+.header {
+    background-color: var(--background-light);
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Hamburger menu styles (retained) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Main Sections */
+.section {
+    padding: 100px 0;
+}
+
+/* Scroll Animation Styles (used by JS) */
+.section.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typography Enhancements */
+h1, h2, h3 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 2.2rem;
+    padding-bottom: 5px;
+    position: relative;
+}
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px auto 0;
+    border-radius: 2px;
+}
+
+
+/* About Section */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/* --- Styles for the Profile Picture in the About Section --- */
+/*
+.profile-pic {
+    /* Define dimensions 
+    width: 250px; 
+    height: 300px;
+    
+    /* Create the circular shape 
+    border-radius: 50%;
+    
+    /* Ensure the image covers the area without distortion 
+    object-fit: cover;
+    
+    /* Add space below the image 
+    margin-bottom: 20px;
+    
+    /* Add a colored border and prominent shadow 
+    border: 5px solid var(--primary-color); /* Professional Blue Border 
+    box-shadow: var(--shadow-hover); Deep shadow for emphasis 
+    
+    /* Ensure it doesn't overflow on small screens 
+    max-width: 100%;
+    
+    /* Add a subtle initial transform for movement 
+    transform: scale(1);
+}
+
+.profile-pic:hover {
+    /* Subtle zoom effect on hover 
+    transform: scale(1.05); 
+    
+    /* Slightly rotate the image 
+    transform: rotate(3deg); 
+    
+    /* Lighten the box shadow for a 'pressed' look or change it completely 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+    
+    /* Change the border color for a dynamic effect 
+    border-color: var(--secondary-color);
+}
+*/
+.profile-pic {
+    width: 220px; 
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--primary-color); 
+    box-shadow: var(--shadow-hover); 
+    max-width:100%;
+}
+
+/* Skills Section */
+.skills {
+    background-color: var(--background-dark);
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+.skill-card {
+    background-color: var(--background-light);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--primary-color);
+}
+.skill-card i {
+    font-size: 3rem;
+    color: var(--primary-color); 
+    margin-bottom: 10px;
+}
+/* Custom Skill Icon Colors */
+.skill-card .fa-java { color: #e89b0a; } 
+.skill-card .fa-python { color: #306998; }
+.skill-card .fa-html5 { color: #e34c26; }
+.skill-card .fa-css3-alt { color: #264de4; }
+.skill-card .fa-js-square { color: #f0db4f; }
+.skill-card .fa-git-alt { color: #f1502f; }
+.skill-card .fa-database { color: #4479a1; }
+.skill-card .fa-c { color: #a8b9cc; }
+
+
+/* Projects Section Styling */
+.projects {
+    background-color: var(--background-light);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--background-light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    border: 1px solid #e0e0e0;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    margin: 15px 15px 5px;
+    text-align: left;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+/* Project Description List Styles */
+.project-card ul {
+    list-style: none; 
+    padding: 0 20px;
+    margin: 15px 0 20px 0;
+    text-align: left;
+}
+
+.project-card li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Custom bullet points for projects */
+.project-card li::before {
+    content: "\2022"; 
+    color: var(--primary-color); 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 15px 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+
+/* Contact Section (retained) */
+.contact {
+    background-color: var(--background-dark);
+    text-align: center;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06); 
+}
+.social-links a {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin: 0 10px;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Design (retained) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
